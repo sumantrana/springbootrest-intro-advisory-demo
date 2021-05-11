@@ -2,13 +2,20 @@ package com.hkjc.springtraining.springbootrestintro;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
 public class CourseService {
 
+    private CourseRepository repository;
+
+    public CourseService(CourseRepository repository) {
+        this.repository = repository;
+    }
+
     public List<Course> getAllCourses() {
-        return null;
+        return Collections.emptyList();
     }
 
     public Course createCourse(Course course) {
