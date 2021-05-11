@@ -1,13 +1,12 @@
 package com.hkjc.springtraining.springbootrestintro;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -20,6 +19,8 @@ public class CourseController {
         this.courseService = courseService;
     }
 
+    @Operation(summary = "Get All Courses")
+    @ApiResponse(responseCode = "200", description = "All courses returned")
     @GetMapping
     public List<Course> getCourses() {
         return this.courseService.getAllCourses();
@@ -53,7 +54,7 @@ public class CourseController {
     }
 
     @GetMapping("/{id}")
-    public Course getCourse(@PathVariable("id") Integer id) {
+    public Course getCourse(@Parameter(name = "id", description = "Enter course id")  @PathVariable("id") Integer id) {
         return courseService.getCourse(id);
     }
 
