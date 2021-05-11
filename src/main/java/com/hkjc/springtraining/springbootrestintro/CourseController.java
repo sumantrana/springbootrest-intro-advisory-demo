@@ -12,25 +12,28 @@ import java.util.*;
 @RequestMapping("/courses")
 public class CourseController {
 
-    private List<Course> courses;
+    private CourseService courseService;
 
-    public CourseController(){
-        courses = new ArrayList<Course>();
-        courses.add(new Course(1,"SpringBoot",2));
-        courses.add(new Course(2, "SpringFramework", 3));
+    public CourseController(CourseService courseService){
+        this.courseService = courseService;
     }
 
     @GetMapping
     public Collection<Course> getCourses(){
-        return courses;
+        return courseService.getCourses();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void createCourse(@RequestBody Course course) {
+    public Course createCourse(@RequestBody Course course) {
         if(course != null && ObjectUtils.isEmpty(course.getName()))
             throw new BadCourseRequestException("Course name cannot be empty");
 
-        courses.add(course);
+        return courseService.createCourse(course);
+    }
+
+    @PutMapping("/{id}")
+    public Course updateCourse(){
+        return null;
     }
 }
