@@ -2,25 +2,28 @@ package com.hkjc.springtraining.springbootrestintro;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CourseService {
 
-    private ArrayList<Course> courses;
-
-    public CourseService(){
-        courses = new ArrayList<>();
-    }
-
-    public List<Course> getCourses() {
-        return courses;
+    public List<Course> getAllCourses() {
+        return null;
     }
 
     public Course createCourse(Course course) {
-        course.setId(courses.size() + 1);
-        courses.add(course);
-        return course;
+        return null;
+    }
+
+    public Course getCourse(int i) {
+        return null;
+    }
+
+    public Course updateCourse(Course course) {
+        return null;
+    }
+
+    public Object deleteCourse(Integer id) {
+        return null;
     }
 }
