@@ -50,9 +50,6 @@ public class CourseController {
 
         Course newCourse = courseService.createCourse(course);
 
-        if(true)
-            throw new CourseNotFoundException("Course 1 not found");
-
         return course;
     }
 
