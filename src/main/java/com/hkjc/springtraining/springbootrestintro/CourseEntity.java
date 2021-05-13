@@ -5,6 +5,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -12,14 +16,18 @@ import javax.validation.constraints.NotNull;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Course {
+@Entity
+@Table(name="Course")
+public class CourseEntity {
 
+    @Id
+    @Column(name="id")
     private Integer id;
 
-    @NotEmpty
+    @Column(name="name")
     private String name;
 
-    @NotNull
+    @Column(name="duration")
     private Integer duration;
 
 }
