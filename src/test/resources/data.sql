@@ -1,4 +1,4 @@
-truncate table course;
+delete from course where id > 0;
 
 insert into course (id, name, duration) values (1, 'Spring Boot', 10);
 insert into course (id, name, duration) values (2, 'Spring Boot1', 11);
